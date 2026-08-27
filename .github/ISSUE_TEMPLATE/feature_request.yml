@@ -1,0 +1,27 @@
+name: Sugerir uma melhoria
+description: Proponha uma mudança de produto ou compatibilidade.
+title: "[Melhoria]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema a resolver
+      description: Explique a necessidade antes da solução proposta.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Solução proposta
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+  - type: textarea
+    id: hardware
+    attributes:
+      label: Evidência de hardware
+      description: Para mudanças HID, informe modelo, firmware, conexão e origem da evidência sem incluir identificadores.

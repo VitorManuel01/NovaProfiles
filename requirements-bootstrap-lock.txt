@@ -1,0 +1,2 @@
+# Ferramenta de bootstrap fixada; evita `pip install --upgrade pip` sem versão.
+pip==26.2.1

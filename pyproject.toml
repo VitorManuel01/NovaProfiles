@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=84,<85"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nova-profiles"
+dynamic = ["version"]
+description = "Automatic GameSir Super Nova remapping profiles for Windows"
+readme = "README.md"
+requires-python = ">=3.11,<3.15"
+dependencies = [
+    "PySide6-Essentials>=6.11,<6.12",
+    "hidapi>=0.15,<0.16",
+    "psutil>=7.2,<7.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/VitorManuel01/NovaProfiles"
+Issues = "https://github.com/VitorManuel01/NovaProfiles/issues"
+
+[project.gui-scripts]
+novaprofiles = "main:main"
+
+[tool.setuptools]
+py-modules = ["main", "version"]
+
+[tool.setuptools.dynamic]
+version = { attr = "version.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["backend*"]
+
+[tool.setuptools.data-files]
+"share/novaprofiles/qml" = ["qml/*.qml", "qml/*.js"]
+"share/novaprofiles/qml/components" = ["qml/components/*.qml"]
+"share/novaprofiles/assets" = ["assets/*.png", "assets/*.ico"]
+"share/novaprofiles/translations" = ["translations/*.qm", "translations/*.ts"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["backend"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true

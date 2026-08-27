@@ -10,6 +10,29 @@ Button {
     property string exeName: ""
     property bool selectedProfile: false
     property bool activeProfile: false
+    property bool defaultProfile: false
+
+    focusPolicy: Qt.StrongFocus
+    Accessible.name: profileName
+    Accessible.description: defaultProfile
+                            ? qsTr("Fallback profile")
+                            : (exeName.length > 0
+                               ? qsTr("Linked to %1").arg(exeName)
+                               : qsTr("No executable linked"))
+    Accessible.role: Accessible.Button
+
+    ToolTip.visible: hovered && (profileNameText.truncated || executableText.truncated)
+    ToolTip.text: profileName + "\n" + executableText.text
+    ToolTip.delay: 650
+
+    Keys.onReturnPressed: function(event) {
+        control.clicked()
+        event.accepted = true
+    }
+    Keys.onEnterPressed: function(event) {
+        control.clicked()
+        event.accepted = true
+    }
 
     implicitHeight: 64
     leftPadding: 14
@@ -20,8 +43,10 @@ Button {
         color: control.selectedProfile
                ? Theme.surfaceHover
                : (control.hovered ? "#121C27" : "transparent")
-        border.width: control.selectedProfile ? 1 : 0
-        border.color: control.selectedProfile ? Theme.border : "transparent"
+        border.width: control.activeFocus ? 2 : (control.selectedProfile ? 1 : 0)
+        border.color: control.activeFocus
+                      ? Theme.focus
+                      : (control.selectedProfile ? Theme.border : "transparent")
     }
 
     contentItem: RowLayout {
@@ -39,6 +64,7 @@ Button {
             spacing: 3
 
             Text {
+                id: profileNameText
                 Layout.fillWidth: true
                 text: control.profileName
                 color: Theme.text
@@ -48,8 +74,13 @@ Button {
             }
 
             Text {
+                id: executableText
                 Layout.fillWidth: true
-                text: control.exeName.length > 0 ? control.exeName : "Base profile"
+                text: control.defaultProfile
+                      ? qsTr("Fallback profile")
+                      : (control.exeName.length > 0
+                         ? control.exeName
+                         : qsTr("No executable linked"))
                 color: Theme.muted
                 font.pixelSize: 11
                 elide: Text.ElideMiddle

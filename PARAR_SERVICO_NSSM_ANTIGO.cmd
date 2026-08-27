@@ -1,13 +1,16 @@
 @echo off
-setlocal
-fltmc >nul 2>&1
+setlocal EnableExtensions
+cd /d "%~dp0"
+
+fltmc.exe >nul 2>&1
 if errorlevel 1 (
-  echo Run this file as Administrator.
-  pause
+  echo Execute este arquivo como Administrador.
+  if /I not "%NOVAPROFILES_NO_PAUSE%"=="1" pause
   exit /b 1
 )
-echo Stopping legacy GameSirAutoProfile service...
-sc stop GameSirAutoProfile
-echo.
-echo This only STOPS the old service. It does not remove it.
-pause
+
+powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File "packaging\stop_legacy_service.ps1"
+set "RESULT=%ERRORLEVEL%"
+
+if /I not "%NOVAPROFILES_NO_PAUSE%"=="1" pause
+exit /b %RESULT%

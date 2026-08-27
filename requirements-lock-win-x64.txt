@@ -1,0 +1,10 @@
+# Lock de runtime para Windows x64 / CPython 3.11-3.14.
+# Atualizado em 2026-08-26. Instale somente wheels com --only-binary=:all:.
+#
+# Os artefatos PyPI possuem wheels diferentes por versão do CPython. Por isso,
+# este lock fixa todas as versões, mas não declara hashes parciais que dariam
+# uma falsa garantia. Consulte docs/BUILDING.md para o processo de atualização.
+hidapi==0.15.0
+psutil==7.2.2
+PySide6-Essentials==6.11.2
+shiboken6==6.11.2

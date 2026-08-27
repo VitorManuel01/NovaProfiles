@@ -2,45 +2,20 @@
 setlocal
 cd /d "%~dp0"
 
-echo =========================================
-echo Nova Profiles - Installation
-echo =========================================
+echo NovaProfiles - instalacao reproduzivel
+echo Python 3.11 a 3.14 x64 e Windows sao obrigatorios.
 echo.
 
-where py >nul 2>nul
-if %errorlevel%==0 (
-  set "PY=py -3"
+powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File "packaging\install.ps1"
+set "RESULT=%ERRORLEVEL%"
+
+if not "%RESULT%"=="0" (
+  echo.
+  echo A instalacao falhou com o codigo %RESULT%.
 ) else (
-  where python >nul 2>nul
-  if errorlevel 1 (
-    echo Python 3 was not found.
-    echo Install Python 3.11+ and run this file again.
-    pause
-    exit /b 1
-  )
-  set "PY=python"
+  echo.
+  echo Instalacao concluida. Execute EXECUTAR.cmd.
 )
 
-if not exist ".venv\Scripts\python.exe" (
-  echo Creating virtual environment...
-  %PY% -m venv .venv
-  if errorlevel 1 goto :fail
-)
-
-echo Installing dependencies...
-".venv\Scripts\python.exe" -m pip install --upgrade pip
-if errorlevel 1 goto :fail
-".venv\Scripts\python.exe" -m pip install -r requirements.txt
-if errorlevel 1 goto :fail
-
-echo.
-echo Done.
-echo Run EXECUTAR.cmd.
-pause
-exit /b 0
-
-:fail
-echo.
-echo Installation failed.
-pause
-exit /b 1
+if /I not "%NOVAPROFILES_NO_PAUSE%"=="1" pause
+exit /b %RESULT%

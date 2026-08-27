@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Relatar uma vulnerabilidade em privado
+    url: https://github.com/VitorManuel01/NovaProfiles/security/advisories/new
+    about: Não publique vulnerabilidades exploráveis em issues comuns.

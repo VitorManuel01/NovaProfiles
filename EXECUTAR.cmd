@@ -1,22 +1,23 @@
 @echo off
 setlocal
 cd /d "%~dp0"
+
 if not exist ".venv\Scripts\python.exe" (
-  echo Rode INSTALAR.cmd primeiro.
-  pause
+  echo Execute INSTALAR.cmd primeiro.
+  if /I not "%NOVAPROFILES_NO_PAUSE%"=="1" pause
   exit /b 1
 )
 
-".venv\Scripts\python.exe" main.py
-set "ERR=%ERRORLEVEL%"
-if not "%ERR%"=="0" (
+".venv\Scripts\python.exe" main.py %*
+set "RESULT=%ERRORLEVEL%"
+if not "%RESULT%"=="0" (
   echo.
-  echo Nova Profiles terminou com erro %ERR%.
-  echo O diagnostico tambem foi salvo em:
-  echo   %TEMP%\NovaProfiles-startup-error.log
-  echo.
-  if exist "%TEMP%\NovaProfiles-startup-error.log" type "%TEMP%\NovaProfiles-startup-error.log"
-  echo.
-  pause
+  echo NovaProfiles terminou com o codigo %RESULT%.
+  echo Diagnostico: %TEMP%\NovaProfiles-startup-error.log
+  if exist "%TEMP%\NovaProfiles-startup-error.log" (
+    echo.
+    type "%TEMP%\NovaProfiles-startup-error.log"
+  )
+  if /I not "%NOVAPROFILES_NO_PAUSE%"=="1" pause
 )
-exit /b %ERR%
+exit /b %RESULT%

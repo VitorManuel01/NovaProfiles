@@ -1,0 +1,61 @@
+name: Relatar um problema
+description: Informe uma falha reproduzível do NovaProfiles.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Remova nomes de usuário, caminhos pessoais, seriais e outros identificadores
+        antes de anexar logs ou capturas USB.
+  - type: input
+    id: version
+    attributes:
+      label: Versão do NovaProfiles
+      placeholder: "1.2.0 ou hash do commit"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Ambiente
+      description: Edição do Windows, versão do Python (se aplicável), firmware e modo de conexão.
+      placeholder: "Windows 11 24H2, firmware ..., dongle 2,4 GHz em XInput"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para reproduzir
+      placeholder: |
+        1. Abra...
+        2. Selecione...
+        3. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Resultado observado
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs sanitizados
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Verificações
+      options:
+        - label: Fechei o GameSir Connect e confirmei o estado do serviço antigo.
+          required: true
+        - label: Removi dados pessoais dos anexos.
+          required: true

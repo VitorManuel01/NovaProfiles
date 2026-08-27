@@ -1,0 +1,88 @@
+name: CI Windows
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }}
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+          cache: pip
+          cache-dependency-path: |
+            requirements-bootstrap-lock.txt
+            requirements-build-lock-win-x64.txt
+
+      - name: Install exact dependencies
+        shell: pwsh
+        run: ./packaging/install.ps1 -BuildTools
+
+      - name: Compile Python
+        shell: pwsh
+        run: ./.venv/Scripts/python.exe -m compileall -q main.py version.py backend packaging tests
+
+      - name: Test
+        shell: pwsh
+        run: ./.venv/Scripts/python.exe -m unittest discover -s tests -v
+
+      - name: Validate QML
+        shell: pwsh
+        run: ./packaging/lint_qml.ps1
+
+  portable-build:
+    name: Portable build
+    needs: test
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          architecture: x64
+          cache: pip
+          cache-dependency-path: |
+            requirements-bootstrap-lock.txt
+            requirements-build-lock-win-x64.txt
+
+      - name: Install exact dependencies
+        shell: pwsh
+        run: ./packaging/install.ps1 -BuildTools
+
+      - name: Build and verify portable app
+        shell: pwsh
+        run: ./packaging/build.ps1 -SkipDependencyInstall -SkipArchive
+
+      - name: Upload portable app
+        uses: actions/upload-artifact@v4
+        with:
+          name: NovaProfiles-portable
+          path: dist/NovaProfiles
+          if-no-files-found: error
+          retention-days: 14

@@ -7,10 +7,30 @@ Button {
     id: control
     property bool danger: false
     property bool secondary: false
+    property string accessibleDescription: ""
 
     implicitHeight: 42
+    implicitWidth: Math.max(96, contentItem.implicitWidth + leftPadding + rightPadding)
     leftPadding: 18
     rightPadding: 18
+    focusPolicy: Qt.StrongFocus
+
+    Accessible.name: text
+    Accessible.description: accessibleDescription
+    Accessible.role: Accessible.Button
+
+    ToolTip.visible: hovered && accessibleDescription.length > 0
+    ToolTip.text: accessibleDescription
+    ToolTip.delay: 650
+
+    Keys.onReturnPressed: function(event) {
+        control.clicked()
+        event.accepted = true
+    }
+    Keys.onEnterPressed: function(event) {
+        control.clicked()
+        event.accepted = true
+    }
 
     contentItem: Text {
         text: control.text
@@ -26,8 +46,10 @@ Button {
 
     background: Rectangle {
         radius: 10
-        border.width: control.secondary ? 1 : 0
-        border.color: control.danger ? Theme.danger : Theme.border
+        border.width: control.activeFocus ? 2 : (control.secondary ? 1 : 0)
+        border.color: control.activeFocus
+                      ? Theme.focus
+                      : (control.danger ? Theme.danger : Theme.border)
         color: {
             if (!control.enabled) return Theme.surface2
             if (control.secondary) return control.hovered ? Theme.surfaceHover : Theme.surface2
