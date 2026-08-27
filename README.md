@@ -125,4 +125,6 @@ O build oficial usa `NovaProfiles.spec`, `PySide6-Essentials`, UPX desativado, V
 
 ## Licença
 
-Ainda não há um arquivo `LICENSE` para o código do NovaProfiles. A escolha da licença pertence ao autor e permanece pendente; a publicação do repositório não deve ser interpretada como concessão automática de uma licença de uso, modificação ou redistribuição. As dependências mantêm suas próprias licenças, descritas em [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+O código do NovaProfiles é disponibilizado sob a [Licença MIT](LICENSE). Ela permite usar, copiar, modificar, distribuir, sublicenciar e comercializar o software, desde que o aviso de copyright e o texto da licença sejam mantidos nas cópias ou partes substanciais do projeto.
+
+As bibliotecas e demais componentes de terceiros continuam sujeitos às suas próprias licenças, descritas em [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
