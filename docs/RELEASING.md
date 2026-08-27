@@ -1,5 +1,7 @@
 # Processo de release
 
+<p align="center"><strong>Português</strong> | <a href="RELEASING.en.md">English</a></p>
+
 O workflow publica apenas tags `v<SemVer>` e não inventa nem exige um certificado de assinatura.
 
 ## Preparação
@@ -10,7 +12,7 @@ O workflow publica apenas tags `v<SemVer>` e não inventa nem exige um certifica
 4. Execute testes, `qmllint`, build e o checklist físico.
 5. Confirme que o portátil não contém perfis, logs, caminhos pessoais ou Qt WebEngine.
 6. Confirme os avisos/licenças de terceiros.
-7. A decisão de licença do NovaProfiles continua sendo do autor; não crie `LICENSE` automaticamente.
+7. Confirme que o arquivo `LICENSE` MIT e os avisos de copyright estão presentes no pacote.
 
 ## Publicação
 

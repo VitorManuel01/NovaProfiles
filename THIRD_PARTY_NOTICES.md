@@ -1,5 +1,7 @@
 # Avisos de software de terceiros
 
+<p align="center"><strong>Português</strong> | <a href="THIRD_PARTY_NOTICES.en.md">English</a></p>
+
 O NovaProfiles depende de componentes mantidos por terceiros. Este resumo é informativo; os textos incluídos nos pacotes e os repositórios de origem são a referência legal. Um release deve preservar os arquivos de licença coletados pelo PyInstaller e incluir este documento e o SBOM CycloneDX.
 
 O pacote portátil inclui `THIRD_PARTY_LICENSES`: os textos declarados pelos
@@ -38,4 +40,4 @@ As versões exatas estão em `requirements-lock-win-x64.txt`, `requirements-buil
 
 ## Código do NovaProfiles
 
-Ainda não existe um `LICENSE` escolhido para o código próprio do NovaProfiles. Este documento não concede uma licença para ele e não substitui a decisão do autor.
+O código próprio do NovaProfiles é disponibilizado sob a [Licença MIT](LICENSE). Este documento trata dos componentes de terceiros e não altera os termos de suas respectivas licenças.

@@ -33,11 +33,17 @@ if ($LASTEXITCODE -ne 0 -or -not $Version) {
 
 foreach ($Document in @(
     "README.md",
+    "README.en.md",
     "CHANGELOG.md",
+    "CHANGELOG.en.md",
     "CONTRIBUTING.md",
+    "CONTRIBUTING.en.md",
+    "LICENSE",
     "PARAR_SERVICO_NSSM_ANTIGO.cmd",
     "SECURITY.md",
-    "THIRD_PARTY_NOTICES.md"
+    "SECURITY.en.md",
+    "THIRD_PARTY_NOTICES.md",
+    "THIRD_PARTY_NOTICES.en.md"
 )) {
     Copy-Item -LiteralPath (Join-Path $RepoRoot $Document) -Destination $DistDirectory -Force
 }

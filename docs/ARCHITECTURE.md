@@ -1,5 +1,7 @@
 # Arquitetura e invariantes
 
+<p align="center"><strong>Português</strong> | <a href="ARCHITECTURE.en.md">English</a></p>
+
 ## Componentes
 
 - `main.py`: ciclo de vida Qt, instância única, tradução e tratamento de falha fatal;

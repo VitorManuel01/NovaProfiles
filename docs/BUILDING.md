@@ -1,5 +1,7 @@
 # Build e dependências
 
+<p align="center"><strong>Português</strong> | <a href="BUILDING.en.md">English</a></p>
+
 ## Ambiente suportado
 
 - Windows 10/11 x64;

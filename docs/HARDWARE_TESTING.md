@@ -1,5 +1,7 @@
 # Checklist de validação física
 
+<p align="center"><strong>Português</strong> | <a href="HARDWARE_TESTING.en.md">English</a></p>
+
 Registre Windows, versão do NovaProfiles, firmware, revisão do controle, modo de conexão e resultado de cada etapa. Feche o GameSir Connect e use um perfil descartável.
 
 ## Conexão e descoberta

@@ -1,5 +1,7 @@
 # Política de segurança
 
+<p align="center"><strong>Português</strong> | <a href="SECURITY.en.md">English</a></p>
+
 ## Versões suportadas
 
 Somente a versão mais recente publicada recebe correções de segurança. Builds locais e versões anteriores podem ajudar no diagnóstico, mas não recebem backports garantidos.

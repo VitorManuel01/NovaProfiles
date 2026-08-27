@@ -1,5 +1,7 @@
 # Contribuindo com o NovaProfiles
 
+<p align="center"><strong>Português</strong> | <a href="CONTRIBUTING.en.md">English</a></p>
+
 Obrigado pelo interesse. Mudanças pequenas, testáveis e apoiadas por evidência de hardware são mais fáceis de revisar.
 
 ## Preparação
@@ -36,4 +38,4 @@ Para mudanças HID, execute também [docs/HARDWARE_TESTING.md](docs/HARDWARE_TES
 
 Explique problema, solução, risco e validação. Mantenha refactors independentes de mudanças de protocolo quando possível. A CI precisa concluir testes, `qmllint` e build.
 
-O projeto ainda não possui uma licença própria escolhida. Contribua apenas se você compreende essa situação; a decisão de licença cabe ao mantenedor e deverá ser formalizada em um arquivo `LICENSE` antes de uma política definitiva de redistribuição.
+Ao contribuir, você concorda que sua contribuição será disponibilizada sob a [Licença MIT](LICENSE) do projeto. Confirme que possui o direito de enviar o código e preserve os avisos aplicáveis de terceiros.

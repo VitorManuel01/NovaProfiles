@@ -1,5 +1,7 @@
 # Changelog
 
+<p align="center"><strong>Português</strong> | <a href="CHANGELOG.en.md">English</a></p>
+
 Todas as mudanças relevantes do NovaProfiles são documentadas aqui. O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e o projeto usa [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
 ## [Unreleased]

@@ -2,6 +2,11 @@
   <img src="assets/NovaProfiles.png" alt="Ícone do NovaProfiles" width="96">
 </p>
 
+<p align="center">
+  <strong>Português</strong> |
+  <a href="README.en.md">English</a>
+</p>
+
 # NovaProfiles
 
 [![CI Windows](https://github.com/VitorManuel01/NovaProfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/VitorManuel01/NovaProfiles/actions/workflows/ci.yml)
