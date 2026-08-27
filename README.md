@@ -36,6 +36,14 @@ Gerenciador de perfis de remapeamento para o controle **GameSir Super Nova** no 
 
 Bluetooth, cabo USB, outros firmwares, outros modelos GameSir e múltiplos controles simultâneos não devem ser considerados compatíveis até passarem pelo checklist de hardware.
 
+### Aviso sobre a descoberta do protocolo e a compatibilidade
+
+A configuração atual foi obtida por **engenharia reversa e análise de bytes do tráfego HID no computador do autor**. Para identificar os comandos, o mapeamento foi alterado manualmente no GameSir Connect e as capturas foram comparadas para observar quais bytes mudavam. Os resultados refletem especificamente o controle GameSir Super Nova, o teclado, o computador, a versão do GameSir Connect e o firmware usados nesses testes.
+
+Por isso, o funcionamento desta versão está validado e garantido apenas na configuração atual do computador do autor, com a versão do firmware do controle e do GameSir Connect utilizadas durante as capturas. Não há garantia de que os mesmos relatórios funcionem em outro computador, layout de teclado, revisão de hardware, firmware ou versão do GameSir Connect. Uma atualização do software ou do firmware pode alterar o protocolo e exigir novas capturas e validações.
+
+O objetivo de longo prazo do projeto é **mapear completamente o protocolo do GameSir Super Nova**, documentar com segurança o comportamento de cada byte, permitir o remapeamento de todos os botões suportados e ampliar a criação e a troca automática de perfis. Até que esse mapeamento e os testes em diferentes ambientes estejam completos, considere o NovaProfiles um projeto experimental e valide cada função com cuidado no seu próprio equipamento.
+
 ## Aviso importante sobre HID
 
 O aplicativo envia relatórios de configuração diretamente ao controle. Uma interrupção, firmware incompatível ou dois configuradores escrevendo ao mesmo tempo podem produzir estado inesperado.
