@@ -1,4 +1,4 @@
 -r requirements.txt
 
 # Faixa aceita para manutenção. BUILD_EXE.cmd e a CI usam o lock exato.
-pyinstaller>=6.22,<7
+pyinstaller>=6.22.3,<7
