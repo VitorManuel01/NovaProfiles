@@ -80,7 +80,7 @@ jobs:
         run: ./packaging/build.ps1 -SkipDependencyInstall -SkipArchive
 
       - name: Upload portable app
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: NovaProfiles-portable
           path: dist/NovaProfiles
