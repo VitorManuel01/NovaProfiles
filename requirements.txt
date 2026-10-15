@@ -1,5 +1,5 @@
 # Faixas aceitas para desenvolvimento. Para instalar ou publicar, use o lock
 # Windows x64 exato em requirements-lock-win-x64.txt.
-PySide6-Essentials>=6.11,<6.12
+PySide6-Essentials>=6.11,<6.13
 hidapi>=0.15,<0.16
 psutil>=7.2,<7.3

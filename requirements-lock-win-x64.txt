@@ -6,5 +6,5 @@
 # uma falsa garantia. Consulte docs/BUILDING.md para o processo de atualização.
 hidapi==0.15.0
 psutil==7.2.2
-PySide6-Essentials==6.11.2
+PySide6-Essentials==6.12.0
 shiboken6==6.11.2
